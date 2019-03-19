@@ -5,7 +5,7 @@ module.exports = {
     getUserId: (accessToken, callback) => {
         let request = {
             method: "GET",
-            url: "https://wozart.auth0.com/userinfo/",
+            url: "https://(from auth0).auth0.com/userinfo/",
             headers: {
                 authorization: "Bearer " + accessToken
             }
@@ -18,7 +18,7 @@ module.exports = {
     },
 
     getDevicesFromTable: function (ID, event, callback) {
-        var rulesTable = "wozartaura-mobilehub-1863763842-Rules";
+        var rulesTable = "Rules";
         var rulesparam = {
             TableName: rulesTable,
             Key: {
@@ -93,7 +93,7 @@ module.exports = {
             Key: {
                 userId: { S: Id }
             },
-            TableName: "wozartaura-mobilehub-1863763842-Rules",
+            TableName: "Rules",
             ProjectionExpression: "Devices,Loads"
         };
         requests.callGetItem(params, function (err, data) {
@@ -209,7 +209,7 @@ module.exports = {
     },
 
     validateUser: function (cookie, userId, callback) {
-        var newtable = "wozartaura-mobilehub-1863763842-Rules";
+        var newtable = "Rules";
         var requestrules = {
             TableName: newtable,
             Key: {
